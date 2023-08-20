@@ -1,19 +1,19 @@
-.font{
+.font {
   font-family: Verdana, sans-serif;
   font-weight: bolder;
 }
 
-.sub-font{
+.sub-font {
   font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Montserrat', sans-serif;
-    background-color: #141317;
-  }
-  
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #141317;
+}
+
 .navbar {
   background-color: #000;
   color: #fff;
@@ -126,16 +126,10 @@ body {
   }
 }
 
-
-.navbar-link:not(.navbar-cta):not(.navbar-logo):hover {
-    border-bottom: 2px solid #5c6bc0;
-}
-
-
 .video-container {
   position: relative;
   width: 100%;
-  height: 90vh;
+  padding-top: 56.25%; /* Set the aspect ratio for a 16:9 video */
   overflow: hidden;
 }
 
@@ -145,9 +139,10 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
-  height: auto;
-  opacity: 1; /* Adjust the opacity as desired */
+  height: 100%;
+  object-fit: cover; /* Add this line to fill the container without distortion */
 }
+
 
 .video-overlay {
   position: absolute;
@@ -155,8 +150,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0); /* Adjust the opacity as desired */
-  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity and color as desired */
 }
 
 .content {
@@ -165,9 +159,6 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  margin-left: auto; /* Add this line to center the content horizontally */
-  margin-right: auto;
-  padding: 50px;
   color: #fff;
   z-index: 2;
 }
@@ -194,14 +185,13 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 80px; /* Adjust the width to your desired value */
+  width: 120px; /* Adjust the width to your desired value */
   margin-left: auto;
   margin-right: auto;
 }
 
 .subscribe-button:hover {
   background-color: #677BC4;
-
 }
 
 .subscribe-button .discord-icon {
@@ -225,12 +215,15 @@ body {
 
 @media screen and (max-width: 768px) {
   .video-container {
-    height: 40vh;
+    padding-top: 0; /* Remove the padding on smaller screens */
   }
 
   .content {
-    padding: 30px;
+    position: static;
+    transform: none;
+    margin-top: 1rem; /* Add some space between the video and content on smaller screens */
   }
+
   .heading {
     font-size: 24px; /* Adjust the font size for mobile devices */
   }
@@ -238,9 +231,11 @@ body {
   .description {
     font-size: 14px; /* Adjust the font size for mobile devices */
   }
+
   .subscribe-button {
     padding: 8px 16px; /* Adjust the button padding for smaller size */
     font-size: 12px; /* Adjust the font size for smaller size */
+    width: 100px; /* Adjust the width for smaller size */
   }
 }
 
@@ -250,40 +245,78 @@ body {
   align-items: center;
   padding: 50px;
 }
+
 .about-video {
   width: 40%;
   padding-right: 30px;
   position: relative;
 }
+
 .about-video video {
   width: 100%;
   height: auto;
 }
+
 .about-info {
   width: 60%;
   padding: 20px;
   background-color: #f1f1f1;
 }
+
 .about-info h2 {
   color: #00bcd4;
 }
+
 .about-info p {
   color: #000;
 }
 
-/* Responsive styles */
 @media screen and (max-width: 768px) {
   .about-section {
     flex-direction: column;
   }
-  .about-video, .about-info {
+
+  .about-video,
+  .about-info {
     width: 100%;
     padding: 0;
   }
+
   .about-video {
     padding-bottom: 30px;
   }
-}
 
-
+  .card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s, transform 0.3s;
+    display: inline-block;
+    margin: 10px;
+  }
   
+  .card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+  }
+  
+  .card h2 {
+    margin-bottom: 10px;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #5c6bc0;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .btn:hover {
+    background-color: #3f51b5;
+  }
+  
+}
